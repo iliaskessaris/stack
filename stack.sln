@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stack", "stack\stack.vcxpro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{C91E1311-A2CB-4B1F-B946-ECF40AE4FD63}"
 	ProjectSection(SolutionItems) = preProject
-		stack\ReadMe.txt = stack\ReadMe.txt
+		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
 Global
