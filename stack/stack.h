@@ -1,6 +1,8 @@
 #ifndef STACK_H
 #define STACK_H
 
+
+
 using namespace std;
 
 class stack
@@ -17,7 +19,7 @@ private:
 public:
 	stack();
 	~stack();
-	void Push(string name, int value);
+	void Push(string newname, int age);
 	void Pop();
 	void ReadItem(item* r);
 	void Print();

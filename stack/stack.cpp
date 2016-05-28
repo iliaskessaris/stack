@@ -1,9 +1,12 @@
 #include <iostream>
+#include <string>
 #include "stack.h"
+
 using namespace std;
 
 stack::stack() {
-	stackPtr = NULL;
+	stackPtr=NULL;
+	
 }
 
 stack::~stack() {
@@ -19,24 +22,42 @@ stack::~stack() {
 
 }
 
-void stack::Push(string name, int value) {
+void stack::Push(string newname, int age) {
 	item* node = new item;
-	node->name = name;
-	node->value = value;
+
+	node->value = age;
+	node->name = newname;
+		
 	node->prev = stackPtr;
 	stackPtr = node;
-
 }
 
 void stack::Pop() {
-
+	item* p=NULL;
+	if (stackPtr == NULL) {
+		cout << "The stack is empty\n";
+	} else {
+		p = stackPtr;
+		ReadItem(stackPtr);
+		stackPtr = stackPtr->prev;
+		delete p;
+	}
 }
 
 
 void stack::ReadItem(item* r) {
-
+	cout << "---------------------------\n";
+	cout << "Name: " << r->name << endl;
+	cout << "Value: " << r->value << endl;
+	cout << "---------------------------\n";
 }
 
 void stack::Print() {
+	item* p=stackPtr;
+
+	while (p != NULL) {
+		ReadItem(p);
+		p = p->prev;
+	}
 
 }
