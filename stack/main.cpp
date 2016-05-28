@@ -1,8 +1,27 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <cstdlib>
 #include "stack.h"
 
 using namespace std;
+
+void StoreToFile() {
+	
+}
+
+void ReadFromFile(stack* data) {
+	ifstream StackFile("StackFile.txt");
+	int age;
+	string newname;
+	if (StackFile.is_open()) {
+		while (!StackFile.eof()) {
+			StackFile >> newname >> age;
+			data->Push(newname, age);
+		}
+		StackFile.close();
+	}
+}
 
 void MenuScreen() {
 	cout << "To push an item to stack press: 1\n";
@@ -17,7 +36,8 @@ void MainMenu() {
 	int age;
 	string newname;
 	char choice;
-	
+
+	ReadFromFile(data);
 	MenuScreen();
 
 	cin >> choice;
@@ -40,9 +60,10 @@ void MainMenu() {
 		MenuScreen();
 		cin >> choice;
 	}
+	StoreToFile();
 }
 
 void main() {
 	MainMenu();
-system("Pause");
+	system("Pause");
 }

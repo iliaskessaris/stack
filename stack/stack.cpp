@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "stack.h"
 
 using namespace std;
@@ -19,7 +20,6 @@ stack::~stack() {
 		p1 = p1->prev;
 		delete p2;
 	}
-
 }
 
 void stack::Push(string newname, int age) {
@@ -27,7 +27,6 @@ void stack::Push(string newname, int age) {
 
 	node->value = age;
 	node->name = newname;
-		
 	node->prev = stackPtr;
 	stackPtr = node;
 }
