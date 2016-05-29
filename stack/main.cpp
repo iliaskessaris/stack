@@ -1,43 +1,26 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <cstdlib>
 #include "stack.h"
 
 using namespace std;
 
-void StoreToFile() {
-	
-}
-
-void ReadFromFile(stack* data) {
-	ifstream StackFile("StackFile.txt");
-	int age;
-	string newname;
-	if (StackFile.is_open()) {
-		while (!StackFile.eof()) {
-			StackFile >> newname >> age;
-			data->Push(newname, age);
-		}
-		StackFile.close();
-	}
-}
-
+//Displays the basic menu.
 void MenuScreen() {
 	cout << "To push an item to stack press: 1\n";
 	cout << "To pop item from stack press: 2\n";
 	cout << "To display the stack press: 3\n";
 	cout << "To exit press any other key\n";
-	
 }
 
+//Uses the basic operations for sustaining the stack.
 void MainMenu() {
 	stack* data=new stack;
 	int age;
 	string newname;
 	char choice;
 
-	ReadFromFile(data);
+	data->ReadFromFile();
 	MenuScreen();
 
 	cin >> choice;
@@ -60,8 +43,9 @@ void MainMenu() {
 		MenuScreen();
 		cin >> choice;
 	}
-	StoreToFile();
+	data->SaveToFile();
 }
+
 
 void main() {
 	MainMenu();

@@ -23,6 +23,9 @@ public:
 	void Pop();
 	void ReadItem(item* r);
 	void Print();
+	void ReadFromFile();
+	void StoreToFile();
+	void SaveToFile();
 };
 
 #endif;
